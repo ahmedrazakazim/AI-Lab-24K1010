@@ -4,7 +4,7 @@ marks = int(input("Enter marks: "))
 print("Student Name: ", name)
 print("Marks: ", marks)
 
-if marks > 85:
+if marks >= 85:
   grade = 'A'
 
 elif marks >= 70 and marks < 85:
