@@ -46,7 +46,7 @@ X_test_scaled = scaler.transform(X_test)
 svm_model = SVC(kernel='linear', C=1.0)
 svm_model.fit(X_train_scaled, y_train)
 
-print("\n--- Model 1: Support Vector Machine (Separating Hyperplane) ---")
+print("\nModel 1: Support Vector Machine (Separating Hyperplane)")
 y_pred_svm = svm_model.predict(X_test_scaled)
 print(f"SVM Accuracy: {accuracy_score(y_test, y_pred_svm):.4f}")
 print(classification_report(y_test, y_pred_svm))
@@ -54,7 +54,7 @@ print(classification_report(y_test, y_pred_svm))
 tree_model = DecisionTreeClassifier(max_depth=3, random_state=42)
 tree_model.fit(X_train, y_train)
 
-print("\n--- Model 2: Decision Tree (Classification Rules) ---")
+print("\nModel 2: Decision Tree (Classification Rules)")
 tree_rules = export_text(tree_model, feature_names=list(X.columns))
 print("Generated Logic Rules:")
 print(tree_rules)
@@ -84,7 +84,7 @@ prospect_scaled = scaler.transform(new_prospect)
 svm_result = svm_model.predict(prospect_scaled)[0]
 tree_result = tree_model.predict(new_prospect)[0]
 
-print("\n--- Real-Time Prediction for New Customer ---")
+print("\nReal-Time Prediction for New Customer")
 print(f"Customer Data: Spending=$850, Visits=22")
 print(f"SVM Classification: {'High-Value' if svm_result == 1 else 'Low-Value'}")
 print(f"Decision Tree Classification: {'High-Value' if tree_result == 1 else 'Low-Value'}")
